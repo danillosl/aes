@@ -50,8 +50,7 @@ public class AESEncryption {
             byte[] messageBytes = message.getBytes();
 
             KeySpec keySpec = new PBEKeySpec(passwordBytes, salt, numberOfInteractions, keyLenght);
-            SecretKey secretKey;
-            secretKey = factory.generateSecret(keySpec);
+            SecretKey secretKey = factory.generateSecret(keySpec);
             SecretKey secret = new SecretKeySpec(secretKey.getEncoded(), "AES");
 
             IvParameterSpec ivParameterSpec = new IvParameterSpec(iv);
@@ -59,11 +58,11 @@ public class AESEncryption {
             Cipher cipher = getAESCBCPKCS5InitializedInstance(Cipher.ENCRYPT_MODE, secret, ivParameterSpec);
 
             output = cipher.doFinal(messageBytes);
-        } catch (InvalidKeySpecException e) {
-            throw new AESException(e);
         } catch (IllegalBlockSizeException e) {
             throw new AESException(e);
         } catch (BadPaddingException e) {
+            throw new AESException(e);
+        } catch (InvalidKeySpecException e) {
             throw new AESException(e);
         }
 

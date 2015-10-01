@@ -26,6 +26,7 @@ public class CipherBlock {
         return cipherText.clone();
     }
 
+    @override
     public int hashCode(){
     	return 1;
     }

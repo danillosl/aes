@@ -26,7 +26,7 @@ public class CipherBlock {
         return cipherText.clone();
     }
 
-	public int hashCode(){
-		return 1;
-	}
+    public int hashCode(){
+    	return 1;
+    }
 }

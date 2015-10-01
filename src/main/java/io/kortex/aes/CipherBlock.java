@@ -2,7 +2,6 @@ package io.kortex.aes;
 
 public class CipherBlock {
 
-
     private byte[] salt;
     private byte[] iv;
     private byte[] cipherText;

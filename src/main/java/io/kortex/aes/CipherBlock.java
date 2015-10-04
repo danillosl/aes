@@ -1,7 +1,7 @@
 package io.kortex.aes;
 
 public class CipherBlock {
-//teste 2
+
     private byte[] salt;
     private byte[] iv;
     private byte[] cipherText;
@@ -26,4 +26,12 @@ public class CipherBlock {
         return cipherText.clone();
     }
 
+    @override
+    public int hashCode(){
+    	return 1;
+    }
+    @override
+    public boolean equals (Object o){
+        return true;
+    }
 }

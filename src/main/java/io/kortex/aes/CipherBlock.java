@@ -30,4 +30,8 @@ public class CipherBlock {
     public int hashCode(){
     	return 1;
     }
+    @override
+    public boolean equals (Object o){
+        return true;
+    }
 }

@@ -1,12 +1,14 @@
 package io.kortex.aes;
 
 import java.util.Arrays;
+import com.google.common.base.Objects;
 
 public class CipherBlock {
 
     private byte[] salt;
     private byte[] iv;
     private byte[] cipherText;
+    private int teste;
 
     /**
      * @param salt
@@ -44,30 +46,22 @@ public class CipherBlock {
 
     @Override
     public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + Arrays.hashCode(cipherText);
-        result = prime * result + Arrays.hashCode(iv);
-        result = prime * result + Arrays.hashCode(salt);
-        return result;
+        return Arrays.deepHashCode(new Object[] { salt, iv, cipherText, teste });
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (obj == null)
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
-        CipherBlock other = (CipherBlock) obj;
-        if (!Arrays.equals(cipherText, other.cipherText))
-            return false;
-        if (!Arrays.equals(iv, other.iv))
-            return false;
-        if (!Arrays.equals(salt, other.salt))
-            return false;
-        return true;
+    public boolean equals(Object object) {
+        if (object instanceof CipherBlock) {
+            CipherBlock that = (CipherBlock) object;
+            return Arrays.deepEquals(new Object[] { this.salt }, new Object[] { that.salt })
+                    && Arrays.deepEquals(new Object[] { this.iv }, new Object[] { that.iv })
+                    && Arrays.deepEquals(new Object[] { this.cipherText }, new Object[] { that.cipherText })
+                    && Objects.equal(this.teste, that.teste);
+
+        }
+        return false;
     }
+
+    // NOSONAR
 
 }

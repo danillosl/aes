@@ -8,6 +8,11 @@ public class CipherBlock {
     private byte[] iv;
     private byte[] cipherText;
 
+    /**
+     * @param salt
+     * @param iv
+     * @param cipherText
+     */
     public CipherBlock(byte[] salt, byte[] iv, byte[] cipherText) {
         super();
 
@@ -16,14 +21,23 @@ public class CipherBlock {
         this.cipherText = cipherText.clone();
     }
 
+    /**
+     * @return
+     */
     public byte[] getSalt() {
         return salt.clone();
     }
 
+    /**
+     * @return
+     */
     public byte[] getIv() {
         return iv.clone();
     }
 
+    /**
+     * @return
+     */
     public byte[] getCipherText() {
         return cipherText.clone();
     }

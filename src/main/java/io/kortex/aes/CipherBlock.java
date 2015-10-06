@@ -10,11 +10,6 @@ public class CipherBlock {
     private byte[] cipherText;
     private int teste;
 
-    /**
-     * @param salt
-     * @param iv
-     * @param cipherText
-     */
     public CipherBlock(byte[] salt, byte[] iv, byte[] cipherText) {
         super();
 

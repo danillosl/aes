@@ -23,23 +23,14 @@ public class CipherBlock {
         this.cipherText = cipherText.clone();
     }
 
-    /**
-     * @return
-     */
     public byte[] getSalt() {
         return salt.clone();
     }
 
-    /**
-     * @return
-     */
     public byte[] getIv() {
         return iv.clone();
     }
 
-    /**
-     * @return
-     */
     public byte[] getCipherText() {
         return cipherText.clone();
     }
@@ -61,7 +52,5 @@ public class CipherBlock {
         }
         return false;
     }
-
-    // NOSONAR
 
 }

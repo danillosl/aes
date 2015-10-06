@@ -1,14 +1,12 @@
 package io.kortex.aes;
 
 import java.util.Arrays;
-import com.google.common.base.Objects;
 
 public class CipherBlock {
 
     private byte[] salt;
     private byte[] iv;
     private byte[] cipherText;
-    private int teste;
 
     public CipherBlock(byte[] salt, byte[] iv, byte[] cipherText) {
         super();
@@ -32,7 +30,7 @@ public class CipherBlock {
 
     @Override
     public int hashCode() {
-        return Arrays.deepHashCode(new Object[] { salt, iv, cipherText, teste });
+        return Arrays.deepHashCode(new Object[] { salt, iv, cipherText });
     }
 
     @Override
@@ -41,9 +39,7 @@ public class CipherBlock {
             CipherBlock that = (CipherBlock) object;
             return Arrays.deepEquals(new Object[] { this.salt }, new Object[] { that.salt })
                     && Arrays.deepEquals(new Object[] { this.iv }, new Object[] { that.iv })
-                    && Arrays.deepEquals(new Object[] { this.cipherText }, new Object[] { that.cipherText })
-                    && Objects.equal(this.teste, that.teste);
-
+                    && Arrays.deepEquals(new Object[] { this.cipherText }, new Object[] { that.cipherText });
         }
         return false;
     }
